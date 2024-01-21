@@ -1,12 +1,18 @@
 import './App.css'
-import { ThemeProvider } from 'contexts/ThemeContext';
 import { ToDo } from 'components/ToDo';
+import { useContext, useEffect } from 'react';
+import { ThemeContext } from 'contexts/ThemeContext';
 
 function App() {
+  const { activeTheme } = useContext(ThemeContext);
+  const rootElement = document.getElementById('root');
+
+  useEffect(() => {
+    rootElement.className = activeTheme;
+  }, [activeTheme]);
+
   return (
-    <ThemeProvider>
-      <ToDo></ToDo>
-    </ThemeProvider>
+    <ToDo></ToDo>
   );
 }
 

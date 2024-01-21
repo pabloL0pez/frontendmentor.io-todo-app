@@ -4,8 +4,9 @@
     "module": "commonjs",
     "baseUrl": ".",
     "paths": {
-      "components": ["./src/components/*"],
-      "contexts": ["./src/contexts/*"]
+      "components": ["./src/components"],
+      "contexts": ["./src/contexts"],
+      "assets": ["./src/assets"],
     }
   }
 }

@@ -1,19 +1,28 @@
 import { useContext, useMemo } from "react";
 import { ThemeContext, THEME } from 'contexts/ThemeContext';
+import './ThemeSwitcher.css';
 
 function ThemeSwitcher() {
   const { activeTheme, setActiveTheme } = useContext(ThemeContext);
 
-  const switchTheme = useMemo(() => {
+  const switchToTheme = useMemo(() => {
     if (activeTheme === THEME.light) {
-      return THEME.dark;
+      return {
+        theme: THEME.dark,
+        iconSrc: 'src/assets/images/icon-moon.svg',
+      };
     }
 
-    return THEME.light;
+    return {
+      theme: THEME.light,
+      iconSrc: 'src/assets/images/icon-sun.svg',
+    };
   }, [activeTheme]);
 
   return (
-    <button onClick={() => {setActiveTheme(switchTheme)}}>SWITCH TO {activeTheme} MODE</button>
+    <button onClick={() => {setActiveTheme(switchToTheme.theme)}}>
+      <img src={switchToTheme.iconSrc}></img>
+    </button>
   );
 };
 
