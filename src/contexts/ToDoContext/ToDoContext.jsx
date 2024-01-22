@@ -41,29 +41,21 @@ function ToDoContextProvider({ children }) {
   }
 
   function checkToDoItem(itemId) {
-    setState({
-      ...state,
-      toDoItems: state.toDoItems.map(item => {
-        if (item.id === itemId) {
-          return {
-            ...item,
-            checked: true,
-          }
-        }
-
-        return item;
-      }),
-    });
+    _updateItem(itemId, true);
   }
 
   function uncheckToDoItem(itemId) {
+    _updateItem(itemId, false);
+  }
+
+  function _updateItem(itemId, checked) {
     setState({
       ...state,
       toDoItems: state.toDoItems.map(item => {
         if (item.id === itemId) {
           return {
             ...item,
-            checked: false,
+            checked,
           }
         }
 
