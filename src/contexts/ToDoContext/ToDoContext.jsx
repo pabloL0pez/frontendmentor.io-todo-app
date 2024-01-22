@@ -8,6 +8,7 @@ function ToDoContextProvider({ children }) {
   const [ state, setState ] = useState({
     toDoItems: [],
     addToDoItem: addToDoItem,
+    removeToDoItem: removeToDoItem,
     checkToDoItem: checkToDoItem,
     uncheckToDoItem: uncheckToDoItem,
   });
@@ -23,6 +24,19 @@ function ToDoContextProvider({ children }) {
           checked: false,
         },
       ],
+    });
+  }
+
+  function removeToDoItem(itemId) {
+    setState({
+      ...state,
+      toDoItems: state.toDoItems.reduce((item, items) => {
+        if (item.id !== itemId) {
+          items.push(item);
+        }
+
+        return items;
+      }, []),
     });
   }
 
