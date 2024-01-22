@@ -14,15 +14,15 @@ function ToDoContextProvider({ children }) {
     updateToDoItems: updateToDoItems,
   });
 
-  function addToDoItem(itemDescription) {
+  function addToDoItem(description = '', checked = false) {
     setState({
       ...state,
       toDoItems: [
         ...state.toDoItems,
         {
           id: state.toDoItems.reduce((item, maxId) => item.id > maxId ? item.id : maxId, 0),
-          description: itemDescription,
-          checked: false,
+          description,
+          checked,
         },
       ],
     });
