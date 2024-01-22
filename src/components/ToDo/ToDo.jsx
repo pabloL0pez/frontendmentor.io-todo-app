@@ -1,9 +1,9 @@
-import { ThemeSwitcher } from 'components/ThemeSwitcher';
+import { Header } from 'components/Header';
 
 function ToDo() {
   return (
     <>
-      <ThemeSwitcher/>
+      <Header/>
     </>
   );
 }
