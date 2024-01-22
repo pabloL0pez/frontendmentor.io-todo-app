@@ -49,7 +49,7 @@ function ToDoContextProvider({ children }) {
     _updateItem(itemId, false);
   }
 
-  function updateToDoItems(items) {
+  function updateToDoItems(items = []) {
     setState({
       ...state,
       toDoItems: items,
