@@ -1,9 +1,13 @@
-import { Header } from 'components/Header';
+import { ToDoItem } from "components/ToDo/ToDoItem";
 
 function ToDo() {
   return (
     <>
-      <Header/>
+      <ToDoItem
+        id={1}
+        description='Something to do'
+        checked={true}
+      />
     </>
   );
 }

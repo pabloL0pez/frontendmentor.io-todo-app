@@ -5,8 +5,8 @@ import { HEADER_TITLE } from './Header.constants';
 function Header() {
   return (
     <header>
-      <div className='header-title'>
-        <p>{HEADER_TITLE}</p>
+      <div className='header-title-container'>
+        <p className='header-title'>{HEADER_TITLE}</p>
         <ThemeSwitcher></ThemeSwitcher>
       </div>
     </header>

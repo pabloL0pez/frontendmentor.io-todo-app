@@ -9,8 +9,7 @@ function ToDoContextProvider({ children }) {
     toDoItems: [],
     addToDoItem: addToDoItem,
     removeToDoItem: removeToDoItem,
-    checkToDoItem: checkToDoItem,
-    uncheckToDoItem: uncheckToDoItem,
+    updateItem: updateItem,
     updateToDoItems: updateToDoItems,
   });
 
@@ -41,36 +40,27 @@ function ToDoContextProvider({ children }) {
     });
   }
 
-  function checkToDoItem(itemId) {
-    _updateItem(itemId, true);
-  }
-
-  function uncheckToDoItem(itemId) {
-    _updateItem(itemId, false);
-  }
-
-  function updateToDoItems(items = []) {
-    setState({
-      ...state,
-      toDoItems: items,
-    });
-  }
-
-  // --- Private functions ---
-
-  function _updateItem(itemId, checked) {
+  function updateItem(itemId, description, checked) {
     setState({
       ...state,
       toDoItems: state.toDoItems.map(item => {
         if (item.id === itemId) {
           return {
             ...item,
+            description,
             checked,
           }
         }
 
         return item;
       }),
+    });
+  }
+
+  function updateToDoItems(items = []) {
+    setState({
+      ...state,
+      toDoItems: items,
     });
   }
 

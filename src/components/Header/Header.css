@@ -19,7 +19,7 @@ header {
   background-image: var(--background-image-desktop); 
 }
 
-.header-title {
+.header-title-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -27,7 +27,7 @@ header {
   min-width: 450px;
 }
 
-p {
+.header-title {
   letter-spacing: 10px;
   font-family: 'Josefina-Bold';
   font-size: 38px;

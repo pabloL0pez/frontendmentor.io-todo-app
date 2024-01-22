@@ -1,4 +1,5 @@
 import './App.css'
+import { Header } from 'components/Header';
 import { ToDo } from 'components/ToDo';
 import { useContext, useEffect } from 'react';
 import { ThemeContext } from 'contexts/ThemeContext';
@@ -12,7 +13,10 @@ function App() {
   }, [activeTheme]);
 
   return (
-    <ToDo></ToDo>
+    <>
+      <Header/>
+      <ToDo/>
+    </>
   );
 }
 
