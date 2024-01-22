@@ -11,6 +11,7 @@ function ToDoContextProvider({ children }) {
     removeToDoItem: removeToDoItem,
     checkToDoItem: checkToDoItem,
     uncheckToDoItem: uncheckToDoItem,
+    updateToDoItems: updateToDoItems,
   });
 
   function addToDoItem(itemDescription) {
@@ -47,6 +48,15 @@ function ToDoContextProvider({ children }) {
   function uncheckToDoItem(itemId) {
     _updateItem(itemId, false);
   }
+
+  function updateToDoItems(items) {
+    setState({
+      ...state,
+      toDoItems: items,
+    });
+  }
+
+  // --- Private functions ---
 
   function _updateItem(itemId, checked) {
     setState({
